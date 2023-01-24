@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>战单帕弥什</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- fullPage -->
+        <script src="./js/jquery.min.js"></script>
+        <script src="./js/fullPage.min.js"></script>
+        <link rel="stylesheet" href="./css/fullPage.css">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                width: 100vw;
+                height: 100vh;
+                overflow: hidden;
+                position: relative;
+            }
+            .section {
+                border: 1px solid salmon;
+                align-items: center;
+                background-color: #333;
+                color: #fff;
+            }
+            #menu {
+                position: fixed;
+                z-index: 999;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+            }
+            #menu .icon {
+                position: relative;
+                left: 20px;
+                width: 30px;
+                transform: rotate(0deg);
+                transition: .5s ease;
+            }
+            #menu .icon.hide {
+                transform: rotate(90deg);
+            }
+            #menu .wrap {
+                position: relative;
+                margin-left: 30px;
+                margin-top: 10px;
+                padding: 20px 0;
+                border-left: 1px solid #fff;
+                transition: .3s linear;
+            }
+            #menu .wrap .pointer {
+                position: absolute;
+                left: -2px;
+                top: 36px;
+                width: 3px;
+                height: 20px;
+                background-color: red;
+                transition: .5s ease;
+            }
+            #menu li {
+                position: relative;
+                display: block;
+                height: 60px;
+                list-style: none;
+            }
+            #menu li a {
+                display: block;
+                margin-top: 15px;
+                padding-left: 15px;
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                color: #fff;
+                font-size: 15px;
+                font-weight: 200;
+                transition: .3s linear;
+            }
+            #menu li.active a {
+                margin-top: 12px;
+                font-size: 20px;
+            }
+            #menu li .sub {
+                display: inline-block;
+                position: relative;
+                left: 22px;
+                padding-left: 15px;
+                color: #fff;
+                font-size: 10px;
+                font-weight: 200;
+                opacity: 0;
+                transition: .5s;
+                transition-delay: 0s;
+            }
+            #menu li.active .sub {
+                opacity: 1;
+                transition: 1s;
+                transition-delay: .3s;
+            }
+            #menu li .sub::before,
+            #menu li .sub::after {
+                content: '';
+                position: absolute;
+                top: 7px;
+                width: 0;
+                height: 2px;
+                background-color: red;
+                transition: .4s linear;
+                transition-delay: 0s;
+            }
+            #menu li .sub::before {
+                left: -6px;
+            }
+            #menu li .sub::after {
+
+                right: -21px;
+            }
+            #menu li.active .sub::before,
+            #menu li.active .sub::after {
+                width: 18px;
+                transition-delay: .5s;
+            }
+        </style>
+    </head>
+    <body>
+       <div id="fullpage">
+            <div class="section active">1</div>
+            <div class="section">2</div>
+            <div class="section">3</div>
+            <div class="section">4</div>
+            <div class="section">5</div>
+            <div class="section">6</div>
+            <div class="section">7</div>
+       </div>
+       <div id="menu">
+            <div class="icon">
+                <svg viewBox="0 0 44 25" data-v-e58dbc16=""><rect x="1" y="0" width="40" height="3" fill="#ffffff" data-v-e58dbc16=""></rect><rect x="1" y="11" width="40" height="3" fill="#ffffff" data-v-e58dbc16=""></rect><rect x="1" y="22" width="40" height="3" fill="#ffffff" data-v-e58dbc16=""></rect></svg>
+            </div>
+            <div class="wrap">
+                <div class="pointer"></div>
+                <li data-menuanchor="Home">
+                    <a href="#Home">首页</a>
+                    <div class="sub">HOME</div>
+                </li>
+                <li data-menuanchor="News">
+                    <a href="#News">新闻资讯</a>
+                    <div class="sub">NEWS</div>
+                </li>
+                <li data-menuanchor="CloudDatabase">
+                    <a href="#CloudDatabase">云端资料库</a>
+                    <div class="sub">DATA</div>
+                </li>
+                <li data-menuanchor="ThemeVedio">
+                    <a href="#ThemeVedio">主题影音</a>
+                    <div class="sub">AUDIO&VIDEO</div>
+                </li>
+                <li data-menuanchor="GameWallpaper">
+                    <a href="#GameWallpaper">游戏壁纸</a>
+                    <div class="sub">PICTURE</div>
+                </li>
+                <li data-menuanchor="Comics">
+                    <a href="#Comics">游戏衍生</a>
+                    <div class="sub">OTHERS</div>
+                </li>
+                <li data-menuanchor="GameFeature">
+                    <a href="#GameFeature">游戏特色</a>
+                    <div class="sub">FEATURES</div>
+                </li>
+            </div>
+        </div>
+        <!-- <video src="https://media-cdn-zspms.kurogame.com/pnswebsite/website2.0/video/1672243200000/l09n8x6xbo6un3c086-1672279284220.mp4" autoplay="" loop="" class="background-video" data-v-f292bd88=""></video> -->
+    </body>
+    <script>
+        const menu_slide = document.querySelector('#menu .wrap .pointer'); // 滑块
+
+        // fullpage
+        $(document).ready(() => {
+            $('#fullpage').fullpage({
+                menu: '#menu',
+                anchors: ['Home', 'News', 'CloudDatabase', 'ThemeVedio', 'GameWallpaper', 'Comics', 'GameFeature'],
+                autoScrolling: true,
+		        scrollHorizontally: true,
+                onLeave: function (origin, destination, direction) {
+                    // 滚动前的回调函数 - 改变滑块位置
+                    menu_slide.style.top = (destination*75 - 39) + 'px';
+                 }
+            });
+        })
+
+        // menu - show&hide
+        const menu_wrap = document.querySelector('#menu .wrap');
+        const menu_icon = document.querySelector('#menu .icon');
+        menu_icon.onclick = () => {
+            console.log('click')
+            if(menu_icon.classList.contains('hide')) {
+                menu_icon.classList.remove('hide');
+                menu_wrap.style.left = 0 + 'px';
+            } else {
+                menu_icon.classList.add('hide');
+                menu_wrap.style.left = -150 + 'px';
+            }
+        };
+
+        // menu-list
+        const menu_lists = document.querySelectorAll('.wrap li');
+        function rmMenuActive() {
+            menu_lists.forEach(item => item.classList.remove('active'));
+        }
+        for(var i = 0; i < menu_lists.length; i++) {
+            menu_lists[i].tag = i;
+        }
+        menu_lists.forEach(item => item.addEventListener('click', () => {
+            rmMenuActive();
+            menu_slide.style.top = (36 + item.tag*75) + 'px';
+            item.classList.add('active');
+        }))
+    </script>
+</html>
