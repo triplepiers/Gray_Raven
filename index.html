@@ -13,12 +13,117 @@
         <link rel="stylesheet" href="./css/gray_raven.css">
         <script src="./js/gray_raven.js"></script>
         <style>
-            
+            /* 新闻 */
+            .section:nth-child(2) .bg_img{
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100vh;
+            }
+            /* 中线分割 */
+            .section:nth-child(2) .split {
+                position: absolute;
+                top: 20%;
+                left: 50%;
+            }
+            .section:nth-child(2) .split::before,
+            .section:nth-child(2) .split::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 1px;
+                height: 27.5vh;
+                background-color: rgba(255, 255, 255, 0.6);
+            }
+            .section:nth-child(2) .split::after {
+                top: 32.5vh;
+            }
+            .section:nth-child(2) .left_wrap {
+                position: absolute;
+                top: 50%;
+                right: 50%;
+                margin-right: 30px;
+                transform: translateY(-50%);
+            }
+            .section:nth-child(2) .slides {
+                overflow-x: hidden;
+            }
+            .section:nth-child(2) .slides .pics {
+                height: 22.7vw;
+                width: 40vw;
+                position: relative;
+                top: 0;
+                left: 0;
+                display: flex;
+                transition: left .5s ease-in-out;
+            }
+            .section:nth-child(2) .slides .pics li {
+                flex-shrink: 0;
+                height: 100%;
+                width: 100%;
+                list-style: none;
+            }
+            .section:nth-child(2) .slides .pics li:nth-child(1) {
+                left: -50px;
+            }
+            .section:nth-child(2) .slides .pics li img {
+                height: 100%;
+                width: 100%;
+            }
+            .section:nth-child(2) .left_wrap .index {
+                color: #fff;
+                letter-spacing: .2vh;
+                font-size: 2vh;
+                position: absolute;
+                top: -3.2vh;
+            }
+            .section:nth-child(2) .left_wrap .index span {
+                color: red;
+            }
+            .section:nth-child(2) .left_wrap .nav {
+                position: absolute;
+                top: 100%;
+                margin-top: 2vh;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                gap: 4vh;
+            }
+            .section:nth-child(2) .left_wrap .nav .line {
+                position: relative;
+                flex: 1;
+                height: 1px;
+                background-color: rgba(255, 255, 255, 0.6);
+            }
+            .section:nth-child(2) .left_wrap .nav li {
+                list-style: none;
+                position: relative;
+                width: .75vh;
+                height: .75vh;
+                background-color: #fff;
+            }
+            .section:nth-child(2) .left_wrap .nav li.active {
+                background-color: red;
+            }
+            .section:nth-child(2) .left_wrap .nav li::after {
+                content: '';
+                position: absolute;
+                left: -.55vh; 
+                top: -.55vh;
+                width: 1.5vh;
+                height: 1.5vh;
+                border: 1px solid red;
+                opacity: 0;
+            }
+            .section:nth-child(2) .left_wrap .nav li.active::after {
+                opacity: 1;
+            }
         </style>
     </head>
     <body>
        <div id="fullpage">
-            <div class="section active">
+            <div class="section">
                 <video class="background-video" src="https://media-cdn-zspms.kurogame.com/pnswebsite/website2.0/video/1672243200000/l09n8x6xbo6un3c086-1672279284220.mp4" autoplay="" loop=""></video>
                 <div class="mask">
                     <div class="left"></div>
@@ -63,7 +168,46 @@
                 </footer>
                 <div class="next"><img src="./img/next_page.png" alt=""></div>
             </div>
-            <div class="section">2</div>
+            <div class="section active">
+                <img class="bg_img" src="./img/bg_news.png">
+                <div class="split"></div>
+                <div class="left_wrap">
+                    <div class="slides">
+                        <ul class="pics">
+                            <li><a href="https://xhcw.tmall.com/"><img src="https://media-cdn-zspms.kurogame.com/pnswebsite/website2.0/images/1672848000000/vvnfvairkr7ljwvprd-16729030551591920x1080.jpg" alt=""></a></li>
+                            <li><a href="https://t.bilibili.com/744964938133405767?spm_id_from=333.999.0.0"><img src="https://media-cdn-zspms.kurogame.com/pnswebsite/website2.0/images/1672243200000/mpfimhoei7t21lppzs-1672310541440700x375.jpg" alt=""></a></li>
+                            <li><a href="https://pns.kurogame.com/news/143"><img src="https://media-cdn-zspms.kurogame.com/pnswebsite/website2.0/images/1672070400000/ck9w9ld5dv4g9wo61y-1672136221607700x375.jpg" alt=""></a></li>
+                            <li><a href="https://www.bilibili.com/video/BV1f8411H77k/"><img src="https://media-cdn-zspms.kurogame.com/pnswebsite/website2.0/images/1671120000000/nt6lkptcwcgva4w1px-1671181606994700x375.jpg" alt=""></a></li>
+                        </ul>
+                    </div>
+                    <div class="index"><span>01</span>/04//</div>
+                    <ul class="nav">
+                        <div class="line"></div>
+                        <li class="active"></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <div class="news">
+                    <ul class="titles">
+                        <li>最新</li>
+                        <li>新闻</li>
+                        <li>公告</li>
+                        <li>活动</li>
+                        <li>攻略</li>
+                    </ul>
+                    <ul class="infos">
+                        <li>
+                            <a href="">
+                                <div class="title"></div>
+                                <div class="time"></div>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="btn more">more+</div>
+                </div>
+            </div>
             <div class="section">3</div>
             <div class="section">4</div>
             <div class="section">5</div>
@@ -151,5 +295,62 @@
             menu_slide.style.top = (36 + item.tag*75) + 'px';
             item.classList.add('active');
         }))
+
+        // 轮播图
+        var slideIndex = 0;
+        const slide_wrap = document.querySelector('.section:nth-child(2) .slides .pics');
+        const slide_span = document.querySelector('.section:nth-child(2) .left_wrap .index span');
+        const slide_btns = document.querySelectorAll('.section:nth-child(2) .left_wrap .nav li');
+        var imgWidth = slide_wrap.offsetWidth;
+        // 自动轮播
+        function nextSlide() {
+            slideIndex++;
+            slideIndex %= 4;
+            // 切换轮播图
+            var imgWidth = slide_wrap.children[0].offsetWidth;
+            slide_wrap.style.left = -slideIndex*imgWidth + 'px';
+            slide_span.innerHTML = '0' + (slideIndex+1);
+            // 改变按钮提示
+            clear_slide_btns();
+            slide_btns[slideIndex].classList.add('active');
+        }
+        function clear_slide_btns() {
+            slide_btns.forEach(item => item.classList.remove('active'));
+        }
+        let slideTimer = setInterval(function() { 
+            nextSlide();
+        }, 3500);
+        window.onresize = () => {
+            imgWidth = slide_wrap.children[0].offsetWidth;
+            slide_wrap.style.left = -slideIndex*imgWidth + 'px';
+        }
+        // hover时清空 timer 事件
+        slide_wrap.onmouseover = function() {
+            clearInterval(slideTimer);
+        }
+        slide_wrap.onmouseout = function() {
+            slideTimer = setInterval(function() { 
+                nextSlide();
+            }, 3500);
+        }
+        // 点击 btn 切换
+        for(var i = 0; i < slide_btns.length; i++) {
+            slide_btns[i].tag = i;
+        }
+        slide_btns.forEach(item => item.addEventListener('click', () => {
+            clearInterval(slideTimer);
+            slideTimer = setInterval(function() { 
+                nextSlide();
+            }, 3500);
+            // 改变位移
+            slideIndex = item.tag;
+            imgWidth = slide_wrap.children[0].offsetWidth;
+            slide_wrap.style.left = -slideIndex*imgWidth + 'px';
+            // 改变索引
+            clear_slide_btns();
+            item.classList.add('active');
+            // 改变 span
+            slide_span.innerHTML = '0' + (slideIndex+1);
+        }));
     </script>
 </html>
