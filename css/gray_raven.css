@@ -1,0 +1,395 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-user-drag: none;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+.section {
+    background-color: #333;
+}
+#menu {
+    position: fixed;
+    z-index: 999;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+#menu .icon {
+    position: relative;
+    left: 20px;
+    width: 30px;
+    transform: rotate(0deg);
+    transition: .5s ease;
+}
+#menu .icon.hide {
+    transform: rotate(90deg);
+}
+#menu .wrap {
+    position: relative;
+    left: 0;
+    margin-left: 30px;
+    margin-top: 10px;
+    padding: 20px 0;
+    border-left: 1px solid #fff;
+    transition: .3s linear;
+}
+#menu .wrap .pointer {
+    position: absolute;
+    left: -2px;
+    top: 36px;
+    width: 3px;
+    height: 20px;
+    background-color: red;
+    transition: .5s ease;
+}
+#menu li {
+    position: relative;
+    display: block;
+    height: 60px;
+    list-style: none;
+}
+#menu li:hover a,
+#menu li:hover .sub {
+    color: #ccc;
+}
+#menu li a {
+    display: block;
+    margin-top: 15px;
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 200;
+    transition: .3s linear, color 0s;
+}
+#menu li.active a {
+    margin-top: 12px;
+    font-size: 20px;
+}
+#menu li .sub {
+    display: inline-block;
+    position: relative;
+    left: 22px;
+    padding-left: 15px;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 200;
+    opacity: 0;
+    transition: .5s, color 0s;
+    transition-delay: 0s;
+}
+#menu li.active .sub {
+    opacity: 1;
+    transition: 1s, color 0s;
+    transition-delay: .3s, color 0s;
+}
+#menu li .sub::before,
+#menu li .sub::after {
+    content: '';
+    position: absolute;
+    top: 7px;
+    width: 0;
+    height: 2px;
+    background-color: red;
+    transition: .4s linear;
+    transition-delay: 0s;
+}
+#menu li .sub::before {
+    left: -6px;
+}
+#menu li .sub::after {
+    right: -21px;
+}
+#menu li.active .sub::before,
+#menu li.active .sub::after {
+    width: 18px;
+    transition-delay: .5s;
+}
+/* Home */
+.section:nth-child(1) .background-video {
+    height: 100vh;
+    transition: .5s;
+}
+.section:nth-child(1) .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.section:nth-child(1) .mask .left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100%;
+    background-image: linear-gradient(to left,transparent,rgba(0,0,0,.5));
+    pointer-events: none;
+}
+.section:nth-child(1) .mask .bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background-image: linear-gradient(to top,rgba(0,0,0,.85), transparent);
+    pointer-events: none;
+}
+/* 顶上两个icon */
+.section:nth-child(1) .cn-icon,
+.section:nth-child(1) .en-icon {
+    position: absolute;
+    top: 5vh;
+    height: 5vh;
+}
+.section:nth-child(1) .cn-icon img,
+.section:nth-child(1) .en-icon img {
+    height: 100%;
+}
+.section:nth-child(1) .cn-icon {
+    left: 20px;
+}
+.section:nth-child(1) .en-icon {
+    right: 40px;
+}
+/* 播放标志 */
+.section:nth-child(1) .play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+}
+.section:nth-child(1) .play img {
+    width: 100%;
+    animation: play 2s ease infinite alternate;
+    transition: .3s;
+}
+@keyframes play {
+    0% {
+        opacity: .2;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.section:nth-child(1) .play img:hover {
+    scale: 1.1;
+    animation: none;
+}
+.section:nth-child(1) .play::before,
+.section:nth-child(1) .play::after {
+    content: '';
+    position: absolute;
+    top: 40px;
+    width: 100px;
+    height: 1px;
+    background-color: rgba(255,255,255,.3);
+}
+.section:nth-child(1) .play::before {
+    right: 85px;
+}
+.section:nth-child(1) .play::after {
+    left: 85px;
+}
+/* 左侧脚标 */
+.section:nth-child(1) footer {
+    width: 100%;
+    position: absolute;
+    bottom: 5vh;
+    left: 0;
+}
+.section:nth-child(1) footer .left {
+    position: relative;
+    left: 30px;
+    height: 2vh;
+    padding-left: 10px;
+    border-left: 4px solid #fff;
+}
+.section:nth-child(1) footer .left img {
+    height: 100%;
+}
+/* 右侧脚标 */
+.section:nth-child(1) footer .right {
+    width: 40vw;
+    position: absolute;
+    right: 30px;
+    border-bottom: 1px solid rgba(255,255,255,.3);
+}
+.section:nth-child(1) footer .right::after {
+    position: absolute;
+    bottom: 0;
+    right: -15px;
+    content: '';
+    width: 4px;
+    height: 17vh;
+    background-color: #fff;
+}
+.section:nth-child(1) footer .right .qr_code {
+    position: absolute;
+    bottom: 2vh;
+    right: 0;
+    width: 12vh;
+    height: 12vh;
+    background-color: rgba(59, 59, 59, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.section:nth-child(1) footer .right .qr_code .frame::before,
+.section:nth-child(1) footer .right .qr_code .frame::after
+{
+    content: '';
+    height: 1px;
+    width: 1.2vh;
+    background-color: #fff;
+    position: absolute;
+}
+.section:nth-child(1) footer .right .qr_code .frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.section:nth-child(1) footer .right .qr_code .frame:nth-child(2) {
+    top: 0;
+    left: 100%;
+    transform: rotate(90deg);
+}
+.section:nth-child(1) footer .right .qr_code .frame:nth-child(3) {
+    right: 0;
+    bottom: 0;
+    transform: rotate(180deg);
+}
+.section:nth-child(1) footer .right .qr_code .frame:nth-child(4) {
+    left: 0;
+    top: 100%;
+    transform: rotate(270deg);
+}
+.section:nth-child(1) footer .right .qr_code .frame::after {
+    transform-origin: left top;
+    transform: rotate(90deg);
+}
+.section:nth-child(1) footer .right .qr_code img {
+    width: 85%;
+}
+.section:nth-child(1) footer .right .qr_code::before {
+    /* 禁止换行 */
+    white-space: nowrap;
+    content: '扫码下载游戏';
+    color: #fff;
+    font-size: 2vh;
+    font-weight: 500;
+    position: absolute;
+    top: -3vh;
+}
+.section:nth-child(1) footer .right .qr_code .scanner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    filter: drop-shadow(0 0 2px rgb(255,47,47))
+    drop-shadow(0 0 4px rgb(255,47,47));
+    background: linear-gradient(to bottom, transparent, rgba(252, 47, 47, 0.6), transparent);
+    animation: scan 2s linear infinite alternate;
+}
+@keyframes scan {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: 100%;
+    }
+}
+.section:nth-child(1) footer .right .list {
+    position: absolute;
+    bottom: 2vh;
+    right: 14vh;
+}
+.section:nth-child(1) footer .right .list .download {
+    position: relative;
+    bottom: 0;
+    height: 5vh;
+    list-style: none;
+    display: flex;
+    gap: 2vh;
+}
+.section:nth-child(1) footer .right .list .download a img {
+    height: 100%;
+}
+.section:nth-child(1) footer .right .list .community {
+    position: relative;
+    bottom: 1.5vh;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: 0;
+    display: flex;
+    gap: 1vh;
+    width: 35vh;
+}
+.section:nth-child(1) footer .right .list .community li {
+    position: relative;
+    list-style: none;
+    width: 5vh;
+    height: 5vh;
+}
+.section:nth-child(1) footer .right .list .community li:hover {
+    background-color: rgba(255,255,255,.1);
+}
+.section:nth-child(1) footer .right .list .community li img {
+    width: 100%;
+}
+.section:nth-child(1) footer .right .list .community li .li_qr {
+    position: absolute;
+    left: -50%;
+    bottom: 0;
+    width: 10.2vh;
+    height: 10.2vh;
+    visibility: hidden;
+    opacity: 0;
+    transition-delay: visibility .2s, opacity .2s, bottom .7s;
+    transition: visibility .2s, opacity .2s, bottom .4s;
+}
+.section:nth-child(1) footer .right .list .community li:hover .li_qr {
+    transition: visibility 0s, opacity .5s, bottom .5s;
+    bottom: 6vh;
+    visibility: visible;
+    opacity: 1;
+}
+.section:nth-child(1) footer .right .list .community li .li_qr:hover {
+    visibility: visible;
+}
+.section:nth-child(1) .next {
+    position: absolute;
+    left: 50%;
+    /* bottom: 3vh; */
+    height: 4.5vh;
+    transform: translateX(-50%);
+    animation: next_page 1s linear infinite;
+}
+@keyframes next_page {
+    0% {
+        bottom: 5vh;
+        opacity: 0;
+    }
+    70% {
+        bottom: 3.2vh;
+        opacity: 1;
+    }
+    80%, 100% {
+        bottom: 3vh;
+        opacity: 1;
+    }
+}
+.section:nth-child(1) .next img {
+    height: 100%;
+}
