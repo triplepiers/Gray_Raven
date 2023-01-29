@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     -webkit-user-drag: none;
+    user-select: none;
 }
 body {
     width: 100vw;
@@ -393,4 +394,89 @@ body {
 }
 .section:nth-child(1) .next img {
     height: 100%;
+}
+
+/* 游戏衍生 */
+.section:nth-child(6) .container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+}
+.section:nth-child(6) .container .pic_wrap {
+    width: 100%;
+    display: flex;
+}
+.section:nth-child(6) .container .pic_wrap .sec {
+    position: relative;
+}
+.section:nth-child(6) .container .pic_wrap .sec .title_wrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: up .8s ease forwards;
+}
+@keyframes up {
+    0% {
+        transform: translateY(30%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+.section:nth-child(6) .container .pic_wrap .sec .title_wrap .main {
+    color: #fff;
+    font-size: 3vw;
+}
+.section:nth-child(6) .container .pic_wrap .sec .title_wrap .sub {
+    position: relative;
+    color: var(--clr);
+    font-size: 1.5vw;
+    letter-spacing: .1vw;
+}
+.section:nth-child(6) .container .pic_wrap .sec .title_wrap .sub::before,
+.section:nth-child(6) .container .pic_wrap .sec .title_wrap .sub::after {
+    content: '';
+    position: absolute;
+    top: 1.2vw;
+    width: 3vw;
+    height: 1px;
+    background-color: var(--clr);
+}
+.section:nth-child(6) .container .pic_wrap .sec .title_wrap .sub::before {
+    left: -3.6vw;
+}
+.section:nth-child(6) .container .pic_wrap .sec .title_wrap .sub::after {
+    right: -3.6vw;
+}
+.section:nth-child(6) .container .pic_wrap .sec img {
+    filter: brightness(0.4);
+    transform: scale(1);
+    width: 100%;
+    transition: .8s;
+}
+/* hover效果 */
+.section:nth-child(6) .container .pic_wrap .sec:hover .title_wrap {
+    animation: down .8s ease forwards;
+}
+@keyframes down {
+    0% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(30%);
+    }
+}
+.section:nth-child(6) .container .pic_wrap .sec:hover img {
+    filter: brightness(1);
+    transform: scale(1.05);
 }
