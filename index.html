@@ -133,41 +133,42 @@
             }
             .section:nth-child(4) .container .middle_scene {
                 position: relative;
-                width: 100%;
-                height: 40vw;
+                width: 200vw;
+                height: 50vw;
                 right: 0;
                 transition: 1s;
             }
             .section:nth-child(4) .container .middle_scene.go_video {
-                right: -33.7vw;
+                right: -27.5vw;
             }
             .section:nth-child(4) .container .middle_scene .divide {
                 position: absolute;
                 left: 0;
                 right: 0;
-                top: 10.1vw;
+                top: 3.4vw;
                 bottom: 0;
                 margin: auto;
-                transform: rotate(47.1deg);
+                transform: rotate(52deg);
                 transform-origin: center center;
                 width: 2px;
-                height: 47vw;
+                height: 60vw;
                 background-image: linear-gradient(transparent, #fff, transparent);
             }
             .section:nth-child(4) .container .middle_scene .left_video {
                 position: absolute;
-                left: .3vw;
-                top: 0;
+                left: -27.5vw;
+                top: -2vw;
                 clip-path: polygon(0% 0%,100% 0%,100% 22.12%,50.18% 100%,0% 100%);
                 height: 100%;
-                width: 67%;
+                width: 100vw;
+                /* background-color: rgba(255, 255, 255, 0.6); */
             }
             .section:nth-child(4) .container .middle_scene .left_video .figure {
                 position: absolute;
                 bottom: 0;
-                right: 5vw;
-                width: 35vw;
-                height: 38vw;
+                right: 15vw;
+                width: 40vw;
+                height: 45vw;
                 background-image: url('./img/figure_video.png');
                 background-size: cover;
                 
@@ -177,17 +178,17 @@
                 bottom: 0;
                 right: 0;
                 background-image: url('./img/bg_video.png');
-                height: 30vw;
-                width: 60vw;
+                height: 39vw;
+                width: 80vw;
                 background-size: cover;
             }
             .section:nth-child(4) .container .middle_scene .left_video .rotate {
                 position: absolute;
-                bottom: 4vw;
-                right: 22vw;
+                bottom: 6vw;
+                right: 29vw;
                 background-image: url('./img/rotate_video.png');
-                height: 25vw;
-                width: 25vw;
+                height: 30vw;
+                width: 30vw;
                 background-size: cover;
                 animation: rt 20s linear infinite;
                 transition: 1s;
@@ -205,8 +206,8 @@
             }
             .section:nth-child(4) .container .middle_scene .left_video .btn {
                 position: absolute;
-                bottom: 14vw;
-                right: 26vw;
+                bottom: 18vw;
+                right: 39vw;
                 background-image: url('./img/btn_video.png');
                 height: 4vw;
                 width: 21.5vw;
@@ -214,25 +215,27 @@
                 transition: .5s;
             }
             .section:nth-child(4) .container .middle_scene .left_video .btn:hover {
-                right: 30vw;
+                right: 42vw;
             }
             .section:nth-child(4) .container .middle_scene.go_video .left_video .btn:hover {
                 right: 26vw;
             }
             .section:nth-child(4) .container .middle_scene .right_audio {
                 position: absolute;
-                right: .3vw;
-                top: 10vw;
-                width: 67%;
+                right: -22.5vw;
+                top: 9.1vw;
+                width: 100vw;
                 height: 100%;
                 clip-path: polygon(50.1% 0%,100% 0%,100% 100%,0% 100%,0% 77.88%);
+                /* background-color: rgba(163, 34, 34, 0.6); */
+                /* border: 1px solid blue; */
             }
             .section:nth-child(4) .container .middle_scene .right_audio .figure {
                 position: absolute;
-                top: 0;
-                left: 5vw;
-                width: 35vw;
-                height: 38vw;
+                top: 2.5vw;
+                left: 11vw;
+                width: 40vw;
+                height: 45vw;
                 background-image: url('./img/figure_audio.png');
                 background-size: cover;
                 opacity: 1;
@@ -240,30 +243,31 @@
             }
             .section:nth-child(4) .container .middle_scene.go_video .right_audio .figure {
                 opacity: 0;
+                visibility: hidden;
             }
             .section:nth-child(4) .container .middle_scene .right_audio .bg {
                 position: absolute;
                 left: 0;
                 top: 0;
                 background-image: url('./img/bg_audio.png');
-                height: 30vw;
-                width: 60vw;
+                height: 39vw;
+                width: 80vw;
                 background-size: cover;
             }
             .section:nth-child(4) .container .middle_scene .right_audio .rotate {
                 position: absolute;
-                top: 4vw;
-                left: 25vw;
+                top: 6vw;
+                left: 35vw;
                 background-image: url('./img/rotate_audio.png');
-                height: 25vw;
-                width: 25vw;
+                height: 30vw;
+                width: 30vw;
                 background-size: cover;
                 animation: rt 20s linear infinite;
             }
             .section:nth-child(4) .container .middle_scene .right_audio .btn {
                 position: absolute;
-                top: 15vw;
-                left: 30.5vw;
+                top: 18vw;
+                left: 42vw;
                 background-image: url('./img/btn_audio.png');
                 height: 4vw;
                 width: 21.5vw;
@@ -271,22 +275,28 @@
                 transition: .5s;
             }
             .section:nth-child(4) .container .middle_scene .right_audio .btn:hover {
-                left: 33.5vw;
+                left: 45vw;
             }
             .section:nth-child(4) .container .middle_scene.go_video .right_audio .btn {
-                left: -14vw;
-                top: 22vw;
-                transition: left 0s, top 0s;
-                animation: btn_right 1s ease forwards;
+                top: 30vw;
+                left: 5vw;
+                transition: left .5s;
+                animation: btn_right 1s ease;
             }
             @keyframes btn_right {
                 0% {
-                    left: -14vw;
+                    top: 30vw;
+                    left: -12vw;
                     opacity: 0;
                 }
                 100% {
-                    left: 3vw;
+                    top: 30vw;
+                    left: 5vw;
+                    opacity: 1;
                 }
+            }
+            .section:nth-child(4) .container .middle_scene.go_video .right_audio .btn:hover {
+                left: 8vw;
             }
         </style>
     </head>
@@ -381,7 +391,7 @@
             <div class="section active">
                 <img class="bg_img" src="./img/bg_theme.png">
                 <div class="container">
-                    <div class="middle_scene" id="video_scene">
+                    <div class="middle_scene go_video" id="video_scene">
                         <div class="left_video">
                             <div class="bg"></div>
                             <div class="rotate"></div>
@@ -391,7 +401,7 @@
                         <div class="right_audio">
                             <div class="bg"></div>
                             <div class="rotate"></div>
-                            <div class="btn"></div>
+                            <div class="btn" id="go_audio"></div>
                             <div class="figure"></div>
                         </div>
                         <div class="divide"></div>
@@ -603,9 +613,14 @@
         // 主体嘤嘤
         const video_scene = document.getElementById('video_scene');
         const go_video = document.getElementById('go_video');
+        const go_audio = document.getElementById('go_audio');
         go_video.onclick = () => {
-            console.log('go video');
+            video_scene.classList.remove('go_audio');
             video_scene.classList.add('go_video');
+        }
+        go_audio.onclick = () => {
+            video_scene.classList.remove('go_video');
+            video_scene.classList.add('go_audio');
         }
     </script>
 </html>
