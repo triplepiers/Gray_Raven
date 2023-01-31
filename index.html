@@ -121,7 +121,173 @@
             .section:nth-child(2) .left_wrap .nav li.active::after {
                 opacity: 1;
             }
-            
+            /* 主题影音 */
+            .section:nth-child(4) .container {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+            }
+            .section:nth-child(4) .container .middle_scene {
+                position: relative;
+                width: 100%;
+                height: 40vw;
+                right: 0;
+                transition: 1s;
+            }
+            .section:nth-child(4) .container .middle_scene.go_video {
+                right: -33.7vw;
+            }
+            .section:nth-child(4) .container .middle_scene .divide {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 10.1vw;
+                bottom: 0;
+                margin: auto;
+                transform: rotate(47.1deg);
+                transform-origin: center center;
+                width: 2px;
+                height: 47vw;
+                background-image: linear-gradient(transparent, #fff, transparent);
+            }
+            .section:nth-child(4) .container .middle_scene .left_video {
+                position: absolute;
+                left: .3vw;
+                top: 0;
+                clip-path: polygon(0% 0%,100% 0%,100% 22.12%,50.18% 100%,0% 100%);
+                height: 100%;
+                width: 67%;
+            }
+            .section:nth-child(4) .container .middle_scene .left_video .figure {
+                position: absolute;
+                bottom: 0;
+                right: 5vw;
+                width: 35vw;
+                height: 38vw;
+                background-image: url('./img/figure_video.png');
+                background-size: cover;
+                
+            }
+            .section:nth-child(4) .container .middle_scene .left_video .bg {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                background-image: url('./img/bg_video.png');
+                height: 30vw;
+                width: 60vw;
+                background-size: cover;
+            }
+            .section:nth-child(4) .container .middle_scene .left_video .rotate {
+                position: absolute;
+                bottom: 4vw;
+                right: 22vw;
+                background-image: url('./img/rotate_video.png');
+                height: 25vw;
+                width: 25vw;
+                background-size: cover;
+                animation: rt 20s linear infinite;
+                transition: 1s;
+            }
+            .section:nth-child(4) .container .middle_scene.go_video .left_video .rotate {
+                right: 17vw;
+            }
+            @keyframes rt {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+            .section:nth-child(4) .container .middle_scene .left_video .btn {
+                position: absolute;
+                bottom: 14vw;
+                right: 26vw;
+                background-image: url('./img/btn_video.png');
+                height: 4vw;
+                width: 21.5vw;
+                background-size: cover;
+                transition: .5s;
+            }
+            .section:nth-child(4) .container .middle_scene .left_video .btn:hover {
+                right: 30vw;
+            }
+            .section:nth-child(4) .container .middle_scene.go_video .left_video .btn:hover {
+                right: 26vw;
+            }
+            .section:nth-child(4) .container .middle_scene .right_audio {
+                position: absolute;
+                right: .3vw;
+                top: 10vw;
+                width: 67%;
+                height: 100%;
+                clip-path: polygon(50.1% 0%,100% 0%,100% 100%,0% 100%,0% 77.88%);
+            }
+            .section:nth-child(4) .container .middle_scene .right_audio .figure {
+                position: absolute;
+                top: 0;
+                left: 5vw;
+                width: 35vw;
+                height: 38vw;
+                background-image: url('./img/figure_audio.png');
+                background-size: cover;
+                opacity: 1;
+                transition: 1s;
+            }
+            .section:nth-child(4) .container .middle_scene.go_video .right_audio .figure {
+                opacity: 0;
+            }
+            .section:nth-child(4) .container .middle_scene .right_audio .bg {
+                position: absolute;
+                left: 0;
+                top: 0;
+                background-image: url('./img/bg_audio.png');
+                height: 30vw;
+                width: 60vw;
+                background-size: cover;
+            }
+            .section:nth-child(4) .container .middle_scene .right_audio .rotate {
+                position: absolute;
+                top: 4vw;
+                left: 25vw;
+                background-image: url('./img/rotate_audio.png');
+                height: 25vw;
+                width: 25vw;
+                background-size: cover;
+                animation: rt 20s linear infinite;
+            }
+            .section:nth-child(4) .container .middle_scene .right_audio .btn {
+                position: absolute;
+                top: 15vw;
+                left: 30.5vw;
+                background-image: url('./img/btn_audio.png');
+                height: 4vw;
+                width: 21.5vw;
+                background-size: cover;
+                transition: .5s;
+            }
+            .section:nth-child(4) .container .middle_scene .right_audio .btn:hover {
+                left: 33.5vw;
+            }
+            .section:nth-child(4) .container .middle_scene.go_video .right_audio .btn {
+                left: -14vw;
+                top: 22vw;
+                transition: left 0s, top 0s;
+                animation: btn_right 1s ease forwards;
+            }
+            @keyframes btn_right {
+                0% {
+                    left: -14vw;
+                    opacity: 0;
+                }
+                100% {
+                    left: 3vw;
+                }
+            }
         </style>
     </head>
     <body>
@@ -212,8 +378,27 @@
                 </div>
             </div>
             <div class="section">3</div>
-            <div class="section">4</div>
             <div class="section active">
+                <img class="bg_img" src="./img/bg_theme.png">
+                <div class="container">
+                    <div class="middle_scene" id="video_scene">
+                        <div class="left_video">
+                            <div class="bg"></div>
+                            <div class="rotate"></div>
+                            <div class="btn" id="go_video"></div>
+                            <div class="figure"></div>
+                        </div>
+                        <div class="right_audio">
+                            <div class="bg"></div>
+                            <div class="rotate"></div>
+                            <div class="btn"></div>
+                            <div class="figure"></div>
+                        </div>
+                        <div class="divide"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="section">
                 <img class="bg_img" src="./img/bg_picture.png">
                 <div class="container">
                     <div class="main_wrap">
@@ -414,5 +599,13 @@
             // 改变 span
             slide_span.innerHTML = '0' + (slideIndex+1);
         }));
+
+        // 主体嘤嘤
+        const video_scene = document.getElementById('video_scene');
+        const go_video = document.getElementById('go_video');
+        go_video.onclick = () => {
+            console.log('go video');
+            video_scene.classList.add('go_video');
+        }
     </script>
 </html>
