@@ -121,182 +121,135 @@
             .section:nth-child(2) .left_wrap .nav li.active::after {
                 opacity: 1;
             }
-            /* 主题影音 */
-            .section:nth-child(4) .container {
+            .section:nth-child(2) .news {
                 position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
+                width: calc(45vw - 40px);
+                top: 50%;
+                right: 5vw;
+                transform: translateY(-50%);
+            }
+            .section:nth-child(2) .news .titles {
                 display: flex;
-                align-items: center;
             }
-            .section:nth-child(4) .container .middle_scene {
+            .section:nth-child(2) .news .titles li{
                 position: relative;
-                width: 200vw;
-                height: 50vw;
-                right: 0;
-                transition: 1s;
+                color: #fff;
+                font-size: 1.5vw;
+                flex: 1;
+                display: flex;
+                justify-content: flex-end;
             }
-            .section:nth-child(4) .container .middle_scene.go_video {
-                right: -27.5vw;
-            }
-            .section:nth-child(4) .container .middle_scene .divide {
+            .section:nth-child(2) .news .titles li::after {
+                opacity: 0;
+                content: '';
                 position: absolute;
-                left: 0;
-                right: 0;
-                top: 3.4vw;
-                bottom: 0;
-                margin: auto;
-                transform: rotate(52deg);
-                transform-origin: center center;
-                width: 2px;
-                height: 60vw;
-                background-image: linear-gradient(transparent, #fff, transparent);
+                display: block;
+                background-color: #EF1E1C;
+                width: 1px;
+                height: 1.3vw;
+                right: 2.9vw;
+                top: 0;
+                transform: rotate(45deg);
+                transform-origin: center;
+                transition: .5s;
             }
-            .section:nth-child(4) .container .middle_scene .left_video {
+            .section:nth-child(2) .news .titles li::before {
+                opacity: 0;
+                font-size: 1.3vw;
+                content: attr(idx);
                 position: absolute;
-                left: -27.5vw;
-                top: -2vw;
-                clip-path: polygon(0% 0%,100% 0%,100% 22.12%,50.18% 100%,0% 100%);
-                height: 100%;
-                width: 100vw;
-                /* background-color: rgba(255, 255, 255, 0.6); */
+                color: #EF1E1C;
+                right: 2.8vw;
+                top: -.6vw;
+                transition: .5s;
             }
-            .section:nth-child(4) .container .middle_scene .left_video .figure {
-                position: absolute;
-                bottom: 0;
-                right: 15vw;
-                width: 40vw;
-                height: 45vw;
-                background-image: url('./img/figure_video.png');
-                background-size: cover;
+            .section:nth-child(2) .news .titles li.active::before,
+            .section:nth-child(2) .news .titles li.active::after {
+                opacity: 1;
+            }
+            .section:nth-child(2) .news .titles li:hover {
+                color: #aaa;
+            }
+            .section:nth-child(2) .news .infos {
+                display: flex;
+                overflow: hidden;
+                margin-top: 1vw;
+            }
+            .section:nth-child(2) .news .infos .block {
+                display: flex;
+                flex-direction: column;
+            }
+            .section:nth-child(2) .news .infos li {
+                width: calc(45vw - 40px);
+            }
+            .section:nth-child(2) .news .infos li a {
+                color: #e0e0e0;
+                font-size: 1vw;
+                display: flex;
+                justify-content: space-between;
                 
             }
-            .section:nth-child(4) .container .middle_scene .left_video .bg {
-                position: absolute;
-                bottom: 0;
-                right: 0;
-                background-image: url('./img/bg_video.png');
-                height: 39vw;
-                width: 80vw;
-                background-size: cover;
-            }
-            .section:nth-child(4) .container .middle_scene .left_video .rotate {
-                position: absolute;
-                bottom: 6vw;
-                right: 29vw;
-                background-image: url('./img/rotate_video.png');
-                height: 30vw;
-                width: 30vw;
-                background-size: cover;
-                animation: rt 20s linear infinite;
-                transition: 1s;
-            }
-            .section:nth-child(4) .container .middle_scene.go_video .left_video .rotate {
-                right: 26vw;
-            }
-            @keyframes rt {
-                0% {
-                    transform: rotate(0deg);
-                }
-                100% {
-                    transform: rotate(360deg);
-                }
-            }
-            .section:nth-child(4) .container .middle_scene .left_video .btn {
-                position: absolute;
-                bottom: 18vw;
-                right: 39vw;
-                background-image: url('./img/btn_video.png');
-                height: 4vw;
-                width: 21.5vw;
-                background-size: cover;
+            .section:nth-child(2) .news .infos li a .title {
+                flex: 1;
                 transition: .5s;
+                position: relative;
+                left: 0;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
-            .section:nth-child(4) .container .middle_scene .left_video .btn:hover {
-                right: 42vw;
-            }
-            .section:nth-child(4) .container .middle_scene.go_video .left_video .btn:hover {
-                right: 39vw;
-            }
-            .section:nth-child(4) .container .middle_scene .right_audio {
-                position: absolute;
-                right: -22.5vw;
-                top: 9.1vw;
-                width: 100vw;
-                height: 100%;
-                clip-path: polygon(50.1% 0%,100% 0%,100% 100%,0% 100%,0% 77.88%);
-                /* background-color: rgba(163, 34, 34, 0.6); */
-                /* border: 1px solid blue; */
-            }
-            .section:nth-child(4) .container .middle_scene .right_audio .figure {
-                position: absolute;
-                top: 2.5vw;
-                left: 11vw;
-                width: 40vw;
-                height: 45vw;
-                background-image: url('./img/figure_audio.png');
-                background-size: cover;
-                opacity: 1;
-                transition: 1s;
-            }
-            .section:nth-child(4) .container .middle_scene.go_video .right_audio .figure {
-                opacity: 0;
-                visibility: hidden;
-            }
-            .section:nth-child(4) .container .middle_scene .right_audio .bg {
+            .section:nth-child(2) .news .infos li a .title::before {
+                content: '';
+                width: 0;
+                height: 1vw;
+                background-color: #EF1E1C;
                 position: absolute;
                 left: 0;
-                top: 0;
-                background-image: url('./img/bg_audio.png');
-                height: 39vw;
-                width: 80vw;
-                background-size: cover;
-            }
-            .section:nth-child(4) .container .middle_scene .right_audio .rotate {
-                position: absolute;
-                top: 6vw;
-                left: 35vw;
-                background-image: url('./img/rotate_audio.png');
-                height: 30vw;
-                width: 30vw;
-                background-size: cover;
-                animation: rt 20s linear infinite;
-            }
-            .section:nth-child(4) .container .middle_scene .right_audio .btn {
-                position: absolute;
-                top: 18vw;
-                left: 42vw;
-                background-image: url('./img/btn_audio.png');
-                height: 4vw;
-                width: 21.5vw;
-                background-size: cover;
+                top: .2vw;
                 transition: .5s;
             }
-            .section:nth-child(4) .container .middle_scene .right_audio .btn:hover {
-                left: 45vw;
+            .section:nth-child(2) .news .infos li a:hover .title {
+                color: #aaa;
+                left: 6px;
             }
-            .section:nth-child(4) .container .middle_scene.go_video .right_audio .btn {
-                top: 30vw;
-                left: 5vw;
-                transition: left .5s;
-                animation: btn_right 1s ease;
+            .section:nth-child(2) .news .infos li a:hover .title::before {
+                width: 3px;
             }
-            @keyframes btn_right {
-                0% {
-                    top: 30vw;
-                    left: -12vw;
-                    opacity: 0;
-                }
-                100% {
-                    top: 30vw;
-                    left: 5vw;
-                    opacity: 1;
-                }
+            .section:nth-child(2) .news .infos li:nth-child(2n+1) a {
+                background-color: rgba(255,255,256,.1);
+                padding: .8vw 2vw;
             }
-            .section:nth-child(4) .container .middle_scene.go_video .right_audio .btn:hover {
-                left: 8vw;
+            .section:nth-child(2) .news .infos li:nth-child(2n) a {
+                padding: 1.5vw 2vw;
+            }
+            .section:nth-child(2) .news .btn {
+                background-color: #fff;
+                font-size: 1vw;
+                font-weight: 700;
+                letter-spacing: .1vw;
+                margin-top: 1vw;
+                padding: .2vw .5vw;
+                position: absolute;
+                right: 0;
+                width: fit-content;
+                transition: .5s;
+            }
+            .section:nth-child(2) .news .btn a {
+                color: #000;
+            }
+            .section:nth-child(2) .news .btn::after {
+                content: '';
+                width: 1px;
+                height: .8vw;
+                background-color: #000;
+                position: absolute;
+                bottom: -.2vw;
+                right: .2vw;
+                transform-origin: center;
+                transform: rotate(45deg);
+            }
+            .section:nth-child(2) .news .btn:hover {
+                transform: scale(1.2);
             }
         </style>
     </head>
@@ -370,21 +323,213 @@
                 </div>
                 <div class="news">
                     <ul class="titles">
-                        <li>最新</li>
-                        <li>新闻</li>
-                        <li>公告</li>
-                        <li>活动</li>
-                        <li>攻略</li>
+                        <li class="active" idx="01">最新</li>
+                        <li idx="02">新闻</li>
+                        <li idx="03">公告</li>
+                        <li idx="04">活动</li>
+                        <li idx="05">攻略</li>
                     </ul>
-                    <ul class="infos">
-                        <li>
-                            <a href="">
-                                <div class="title"></div>
-                                <div class="time"></div>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="btn more">more+</div>
+                    <div class="infos">
+                        <div class="block">
+                            <li>
+                                <a href="https://pns.kurogame.com/news/155">
+                                    <div class="title">【最新】2月17日封禁处理公示</div>
+                                    <div class="time">2023-02-17</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://pns.kurogame.com/news/149">
+                                    <div class="title">【最新】《战双帕弥什》浮英枕梦版本一览</div>
+                                    <div class="time">2023-02-09</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://pns.kurogame.com/news/147">
+                                    <div class="title">【最新】《浮英枕梦行》版本更新公告</div>
+                                    <div class="time">2023-02-07</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://pns.kurogame.com/news/148">
+                                    <div class="title">【最新】《战双帕弥什》新版本「浮英枕梦行」PV公开 | 悠山百转，梦醒觉空</div>
+                                    <div class="time">2023-02-04</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://pns.kurogame.com/news/146">
+                                    <div class="title">【最新】1月20日封禁处理公示</div>
+                                    <div class="time">2023-01-20</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://pns.kurogame.com/news/144">
+                                    <div class="title">【最新】《战双帕弥什》凛桎鸣渊版本一览</div>
+                                    <div class="time">2022-12-29</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://pns.kurogame.com/news/143">
+                                    <div class="title">【最新】《凛桎鸣渊》版本更新公告</div>
+                                    <div class="time">2022-12-27</div>
+                                </a>
+                            </li>
+                        </div>
+                        <div class="block">
+                            <li>
+                                <a href="https://pns.kurogame.com/news/149">
+                                    <div class="title">【新闻】《战双帕弥什》浮英枕梦行版本一览</div>
+                                    <div class="time">2023-02-09</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://pns.kurogame.com/news/148">
+                                    <div class="title">【新闻】《战双帕弥什》新版本「浮英枕梦行」PV公开 | 悠山百转，梦醒觉空</div>
+                                    <div class="time">2023-02-04</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://pns.kurogame.com/news/144">
+                                    <div class="title">【新闻】《战双帕弥什》凛桎鸣渊版本一览</div>
+                                    <div class="time">2022-12-29</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://pns.kurogame.com/news/141">
+                                    <div class="title">【新闻】《《战双帕弥什》新版本「凛桎鸣渊」PV公开 | 霜雪掩迹，囚锁缚影</div>
+                                    <div class="time">2022-12-17</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://pns.kurogame.com/news/139">
+                                    <div class="title">【新闻】《战双帕弥什》创绘映想版本一览</div>
+                                    <div class="time">2022-11-17</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://pns.kurogame.com/news/136">
+                                    <div class="title">【新闻】《战双帕弥什》新版本「创绘映想」PV公开 | 万色绘卷，虹彩焕华</div>
+                                    <div class="time">2022-11-12</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://pns.kurogame.com/news/128">
+                                    <div class="title">【新闻】《战双帕弥什》刻命螺旋版本一览</div>
+                                    <div class="time">2022-09-29</div>
+                                </a>
+                            </li>
+                        </div>
+                        <div class="block">
+                            <li>
+                                <a href="https://pns.kurogame.com/news/155">
+                                    <div class="title">【公告】2月17日封禁处理公示</div>
+                                    <div class="time">2023-02-17</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://pns.kurogame.com/news/147">
+                                    <div class="title">【公告】《浮英枕梦行》版本更新公告</div>
+                                    <div class="time">2023-02-07</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://pns.kurogame.com/news/146">
+                                    <div class="title">【公告】1月20日封禁处理公示</div>
+                                    <div class="time">2023-01-20</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://pns.kurogame.com/news/143">
+                                    <div class="title">【公告】《凛桎鸣渊》版本更新公告</div>
+                                    <div class="time">2022-12-27</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://pns.kurogame.com/news/138">
+                                    <div class="title">【公告】《创绘映想》版本更新公告</div>
+                                    <div class="time">2022-11-15</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://pns.kurogame.com/news/135">
+                                    <div class="title">【公告】10月27日封禁处理公示</div>
+                                    <div class="time">2022-10-27</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://pns.kurogame.com/news/132">
+                                    <div class="title">【公告】10月13日封禁处理公示</div>
+                                    <div class="time">2022-10-13</div>
+                                </a>
+                            </li>
+                        </div>
+                        <div class="block">
+                            <li>
+                                <a href="https://pns.kurogame.com/news/78">
+                                    <div class="title">【活动】DOKIDOKI-520心跳特辑</div>
+                                    <div class="time">2022-05-19</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://pns.kurogame.com/news/59">
+                                    <div class="title">【活动】黄金时代的盲盒机抽奖活动获奖名单公示</div>
+                                    <div class="time">2022-03-30</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://pns.kurogame.com/news/29">
+                                    <div class="title">【活动】法奥斯期末测验获奖名单公示</div>
+                                    <div class="time">2022-01-21</div>
+                                </a>
+                            </li>
+                        </div>
+                        <div class="block">
+                            <li>
+                                <a href="https://pns.kurogame.com/news/119">
+                                    <div class="title">【攻略】《战双帕弥什》角色攻略 | 邦比娜塔·琉璃</div>
+                                    <div class="time">2022-08-22</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://pns.kurogame.com/news/117">
+                                    <div class="title">【攻略】《战双帕弥什》未语庭言作战交流会</div>
+                                    <div class="time">2022-08-18</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://pns.kurogame.com/news/81">
+                                    <div class="title">【攻略】萌新攻略·从0开始的开荒，18分钟极速毕业</div>
+                                    <div class="time">2022-05-24</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://pns.kurogame.com/news/79">
+                                    <div class="title">【攻略】队伍培养及使用技巧指南—暗队</div>
+                                    <div class="time">2022-05-19</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://pns.kurogame.com/news/76">
+                                    <div class="title">【攻略】诺曼复兴战（矿区）详细介绍＆技巧分享</div>
+                                    <div class="time">2022-05-18</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://pns.kurogame.com/news/74">
+                                    <div class="title">【攻略】萌新入门：从零开荒指南—成长期（下篇）</div>
+                                    <div class="time">2022-05-17</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://pns.kurogame.com/news/73">
+                                    <div class="title">【攻略】萌新入门：从零开荒指南—1~40级过渡期（上篇）</div>
+                                    <div class="time">2022-05-17</div>
+                                </a>
+                            </li>
+                        </div>
+                    </div>
+                    <div class="btn more">
+                        <a href="https://pns.kurogame.com/news">MORE+</a>
+                    </div>
                 </div>
             </div>
             <div class="section">3</div>
