@@ -13,244 +13,7 @@
         <link rel="stylesheet" href="./css/gray_raven.css">
         <script src="./js/gray_raven.js"></script>
         <style>
-            /* 新闻 */
-            .section .bg_img{
-                position: absolute;
-                left: 0;
-                top: 0;
-                height: 100%;
-                width: 100%;
-                object-fit: cover;
-            }
-            /* 中线分割 */
-            .section:nth-child(2) .split {
-                position: absolute;
-                top: 20%;
-                left: 50%;
-            }
-            .section:nth-child(2) .split::before,
-            .section:nth-child(2) .split::after {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 1px;
-                height: 27.5vh;
-                background-color: rgba(255, 255, 255, 0.6);
-            }
-            .section:nth-child(2) .split::after {
-                top: 32.5vh;
-            }
-            .section:nth-child(2) .left_wrap {
-                position: absolute;
-                top: 50%;
-                right: 50%;
-                margin-right: 30px;
-                transform: translateY(-50%);
-            }
-            .section:nth-child(2) .slides {
-                overflow-x: hidden;
-            }
-            .section:nth-child(2) .slides .pics {
-                height: 22.7vw;
-                width: 40vw;
-                position: relative;
-                top: 0;
-                left: 0;
-                display: flex;
-                transition: left .5s ease-in-out;
-            }
-            .section:nth-child(2) .slides .pics li {
-                flex-shrink: 0;
-                height: 100%;
-                width: 100%;
-                list-style: none;
-            }
-            .section:nth-child(2) .slides .pics li:nth-child(1) {
-                left: -50px;
-            }
-            .section:nth-child(2) .slides .pics li img {
-                height: 100%;
-                width: 100%;
-            }
-            .section:nth-child(2) .left_wrap .index {
-                color: #fff;
-                letter-spacing: .2vh;
-                font-size: 2vh;
-                position: absolute;
-                top: -3.2vh;
-            }
-            .section:nth-child(2) .left_wrap .index span {
-                color: red;
-            }
-            .section:nth-child(2) .left_wrap .nav {
-                position: absolute;
-                top: 100%;
-                margin-top: 2vh;
-                width: 100%;
-                display: flex;
-                align-items: center;
-                gap: 4vh;
-            }
-            .section:nth-child(2) .left_wrap .nav .line {
-                position: relative;
-                flex: 1;
-                height: 1px;
-                background-color: rgba(255, 255, 255, 0.6);
-            }
-            .section:nth-child(2) .left_wrap .nav li {
-                list-style: none;
-                position: relative;
-                width: .75vh;
-                height: .75vh;
-                background-color: #fff;
-            }
-            .section:nth-child(2) .left_wrap .nav li.active {
-                background-color: red;
-            }
-            .section:nth-child(2) .left_wrap .nav li::after {
-                content: '';
-                position: absolute;
-                left: -.55vh; 
-                top: -.55vh;
-                width: 1.5vh;
-                height: 1.5vh;
-                border: 1px solid red;
-                opacity: 0;
-            }
-            .section:nth-child(2) .left_wrap .nav li.active::after {
-                opacity: 1;
-            }
-            .section:nth-child(2) .news {
-                position: absolute;
-                width: calc(45vw - 40px);
-                top: 50%;
-                right: 5vw;
-                transform: translateY(-50%);
-            }
-            .section:nth-child(2) .news .titles {
-                display: flex;
-            }
-            .section:nth-child(2) .news .titles li{
-                position: relative;
-                color: #fff;
-                font-size: 1.5vw;
-                flex: 1;
-                display: flex;
-                justify-content: flex-end;
-            }
-            .section:nth-child(2) .news .titles li::after {
-                opacity: 0;
-                content: '';
-                position: absolute;
-                display: block;
-                background-color: #EF1E1C;
-                width: 1px;
-                height: 1.3vw;
-                right: 2.9vw;
-                top: 0;
-                transform: rotate(45deg);
-                transform-origin: center;
-                transition: .5s;
-            }
-            .section:nth-child(2) .news .titles li::before {
-                opacity: 0;
-                font-size: 1.3vw;
-                content: attr(idx);
-                position: absolute;
-                color: #EF1E1C;
-                right: 2.8vw;
-                top: -.6vw;
-                transition: .5s;
-            }
-            .section:nth-child(2) .news .titles li.active::before,
-            .section:nth-child(2) .news .titles li.active::after {
-                opacity: 1;
-            }
-            .section:nth-child(2) .news .titles li:hover {
-                color: #aaa;
-            }
-            .section:nth-child(2) .news .infos {
-                display: flex;
-                overflow: hidden;
-                margin-top: 1vw;
-            }
-            .section:nth-child(2) .news .infos .block {
-                display: flex;
-                flex-direction: column;
-            }
-            .section:nth-child(2) .news .infos li {
-                width: calc(45vw - 40px);
-            }
-            .section:nth-child(2) .news .infos li a {
-                color: #e0e0e0;
-                font-size: 1vw;
-                display: flex;
-                justify-content: space-between;
-                
-            }
-            .section:nth-child(2) .news .infos li a .title {
-                flex: 1;
-                transition: .5s;
-                position: relative;
-                left: 0;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-            .section:nth-child(2) .news .infos li a .title::before {
-                content: '';
-                width: 0;
-                height: 1vw;
-                background-color: #EF1E1C;
-                position: absolute;
-                left: 0;
-                top: .2vw;
-                transition: .5s;
-            }
-            .section:nth-child(2) .news .infos li a:hover .title {
-                color: #aaa;
-                left: 6px;
-            }
-            .section:nth-child(2) .news .infos li a:hover .title::before {
-                width: 3px;
-            }
-            .section:nth-child(2) .news .infos li:nth-child(2n+1) a {
-                background-color: rgba(255,255,256,.1);
-                padding: .8vw 2vw;
-            }
-            .section:nth-child(2) .news .infos li:nth-child(2n) a {
-                padding: 1.5vw 2vw;
-            }
-            .section:nth-child(2) .news .btn {
-                background-color: #fff;
-                font-size: 1vw;
-                font-weight: 700;
-                letter-spacing: .1vw;
-                margin-top: 1vw;
-                padding: .2vw .5vw;
-                position: absolute;
-                right: 0;
-                width: fit-content;
-                transition: .5s;
-            }
-            .section:nth-child(2) .news .btn a {
-                color: #000;
-            }
-            .section:nth-child(2) .news .btn::after {
-                content: '';
-                width: 1px;
-                height: .8vw;
-                background-color: #000;
-                position: absolute;
-                bottom: -.2vw;
-                right: .2vw;
-                transform-origin: center;
-                transform: rotate(45deg);
-            }
-            .section:nth-child(2) .news .btn:hover {
-                transform: scale(1.2);
-            }
+            
         </style>
     </head>
     <body>
@@ -329,202 +92,204 @@
                         <li idx="04">活动</li>
                         <li idx="05">攻略</li>
                     </ul>
-                    <div class="infos">
-                        <div class="block">
-                            <li>
-                                <a href="https://pns.kurogame.com/news/155">
-                                    <div class="title">【最新】2月17日封禁处理公示</div>
-                                    <div class="time">2023-02-17</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://pns.kurogame.com/news/149">
-                                    <div class="title">【最新】《战双帕弥什》浮英枕梦版本一览</div>
-                                    <div class="time">2023-02-09</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://pns.kurogame.com/news/147">
-                                    <div class="title">【最新】《浮英枕梦行》版本更新公告</div>
-                                    <div class="time">2023-02-07</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://pns.kurogame.com/news/148">
-                                    <div class="title">【最新】《战双帕弥什》新版本「浮英枕梦行」PV公开 | 悠山百转，梦醒觉空</div>
-                                    <div class="time">2023-02-04</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://pns.kurogame.com/news/146">
-                                    <div class="title">【最新】1月20日封禁处理公示</div>
-                                    <div class="time">2023-01-20</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://pns.kurogame.com/news/144">
-                                    <div class="title">【最新】《战双帕弥什》凛桎鸣渊版本一览</div>
-                                    <div class="time">2022-12-29</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://pns.kurogame.com/news/143">
-                                    <div class="title">【最新】《凛桎鸣渊》版本更新公告</div>
-                                    <div class="time">2022-12-27</div>
-                                </a>
-                            </li>
-                        </div>
-                        <div class="block">
-                            <li>
-                                <a href="https://pns.kurogame.com/news/149">
-                                    <div class="title">【新闻】《战双帕弥什》浮英枕梦行版本一览</div>
-                                    <div class="time">2023-02-09</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://pns.kurogame.com/news/148">
-                                    <div class="title">【新闻】《战双帕弥什》新版本「浮英枕梦行」PV公开 | 悠山百转，梦醒觉空</div>
-                                    <div class="time">2023-02-04</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://pns.kurogame.com/news/144">
-                                    <div class="title">【新闻】《战双帕弥什》凛桎鸣渊版本一览</div>
-                                    <div class="time">2022-12-29</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://pns.kurogame.com/news/141">
-                                    <div class="title">【新闻】《《战双帕弥什》新版本「凛桎鸣渊」PV公开 | 霜雪掩迹，囚锁缚影</div>
-                                    <div class="time">2022-12-17</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://pns.kurogame.com/news/139">
-                                    <div class="title">【新闻】《战双帕弥什》创绘映想版本一览</div>
-                                    <div class="time">2022-11-17</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://pns.kurogame.com/news/136">
-                                    <div class="title">【新闻】《战双帕弥什》新版本「创绘映想」PV公开 | 万色绘卷，虹彩焕华</div>
-                                    <div class="time">2022-11-12</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://pns.kurogame.com/news/128">
-                                    <div class="title">【新闻】《战双帕弥什》刻命螺旋版本一览</div>
-                                    <div class="time">2022-09-29</div>
-                                </a>
-                            </li>
-                        </div>
-                        <div class="block">
-                            <li>
-                                <a href="https://pns.kurogame.com/news/155">
-                                    <div class="title">【公告】2月17日封禁处理公示</div>
-                                    <div class="time">2023-02-17</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://pns.kurogame.com/news/147">
-                                    <div class="title">【公告】《浮英枕梦行》版本更新公告</div>
-                                    <div class="time">2023-02-07</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://pns.kurogame.com/news/146">
-                                    <div class="title">【公告】1月20日封禁处理公示</div>
-                                    <div class="time">2023-01-20</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://pns.kurogame.com/news/143">
-                                    <div class="title">【公告】《凛桎鸣渊》版本更新公告</div>
-                                    <div class="time">2022-12-27</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://pns.kurogame.com/news/138">
-                                    <div class="title">【公告】《创绘映想》版本更新公告</div>
-                                    <div class="time">2022-11-15</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://pns.kurogame.com/news/135">
-                                    <div class="title">【公告】10月27日封禁处理公示</div>
-                                    <div class="time">2022-10-27</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://pns.kurogame.com/news/132">
-                                    <div class="title">【公告】10月13日封禁处理公示</div>
-                                    <div class="time">2022-10-13</div>
-                                </a>
-                            </li>
-                        </div>
-                        <div class="block">
-                            <li>
-                                <a href="https://pns.kurogame.com/news/78">
-                                    <div class="title">【活动】DOKIDOKI-520心跳特辑</div>
-                                    <div class="time">2022-05-19</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://pns.kurogame.com/news/59">
-                                    <div class="title">【活动】黄金时代的盲盒机抽奖活动获奖名单公示</div>
-                                    <div class="time">2022-03-30</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://pns.kurogame.com/news/29">
-                                    <div class="title">【活动】法奥斯期末测验获奖名单公示</div>
-                                    <div class="time">2022-01-21</div>
-                                </a>
-                            </li>
-                        </div>
-                        <div class="block">
-                            <li>
-                                <a href="https://pns.kurogame.com/news/119">
-                                    <div class="title">【攻略】《战双帕弥什》角色攻略 | 邦比娜塔·琉璃</div>
-                                    <div class="time">2022-08-22</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://pns.kurogame.com/news/117">
-                                    <div class="title">【攻略】《战双帕弥什》未语庭言作战交流会</div>
-                                    <div class="time">2022-08-18</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://pns.kurogame.com/news/81">
-                                    <div class="title">【攻略】萌新攻略·从0开始的开荒，18分钟极速毕业</div>
-                                    <div class="time">2022-05-24</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://pns.kurogame.com/news/79">
-                                    <div class="title">【攻略】队伍培养及使用技巧指南—暗队</div>
-                                    <div class="time">2022-05-19</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://pns.kurogame.com/news/76">
-                                    <div class="title">【攻略】诺曼复兴战（矿区）详细介绍＆技巧分享</div>
-                                    <div class="time">2022-05-18</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://pns.kurogame.com/news/74">
-                                    <div class="title">【攻略】萌新入门：从零开荒指南—成长期（下篇）</div>
-                                    <div class="time">2022-05-17</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://pns.kurogame.com/news/73">
-                                    <div class="title">【攻略】萌新入门：从零开荒指南—1~40级过渡期（上篇）</div>
-                                    <div class="time">2022-05-17</div>
-                                </a>
-                            </li>
+                    <div class="info_filter">
+                        <div class="infos" id="news_body">
+                            <div class="block">
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/155">
+                                        <div class="title">【最新】2月17日封禁处理公示</div>
+                                        <div class="time">2023-02-17</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/149">
+                                        <div class="title">【最新】《战双帕弥什》浮英枕梦版本一览</div>
+                                        <div class="time">2023-02-09</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/147">
+                                        <div class="title">【最新】《浮英枕梦行》版本更新公告</div>
+                                        <div class="time">2023-02-07</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/148">
+                                        <div class="title">【最新】《战双帕弥什》新版本「浮英枕梦行」PV公开 | 悠山百转，梦醒觉空</div>
+                                        <div class="time">2023-02-04</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/146">
+                                        <div class="title">【最新】1月20日封禁处理公示</div>
+                                        <div class="time">2023-01-20</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/144">
+                                        <div class="title">【最新】《战双帕弥什》凛桎鸣渊版本一览</div>
+                                        <div class="time">2022-12-29</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/143">
+                                        <div class="title">【最新】《凛桎鸣渊》版本更新公告</div>
+                                        <div class="time">2022-12-27</div>
+                                    </a>
+                                </li>
+                            </div>
+                            <div class="block">
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/149">
+                                        <div class="title">【新闻】《战双帕弥什》浮英枕梦行版本一览</div>
+                                        <div class="time">2023-02-09</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/148">
+                                        <div class="title">【新闻】《战双帕弥什》新版本「浮英枕梦行」PV公开 | 悠山百转，梦醒觉空</div>
+                                        <div class="time">2023-02-04</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/144">
+                                        <div class="title">【新闻】《战双帕弥什》凛桎鸣渊版本一览</div>
+                                        <div class="time">2022-12-29</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/141">
+                                        <div class="title">【新闻】《《战双帕弥什》新版本「凛桎鸣渊」PV公开 | 霜雪掩迹，囚锁缚影</div>
+                                        <div class="time">2022-12-17</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/139">
+                                        <div class="title">【新闻】《战双帕弥什》创绘映想版本一览</div>
+                                        <div class="time">2022-11-17</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/136">
+                                        <div class="title">【新闻】《战双帕弥什》新版本「创绘映想」PV公开 | 万色绘卷，虹彩焕华</div>
+                                        <div class="time">2022-11-12</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/128">
+                                        <div class="title">【新闻】《战双帕弥什》刻命螺旋版本一览</div>
+                                        <div class="time">2022-09-29</div>
+                                    </a>
+                                </li>
+                            </div>
+                            <div class="block">
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/155">
+                                        <div class="title">【公告】2月17日封禁处理公示</div>
+                                        <div class="time">2023-02-17</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/147">
+                                        <div class="title">【公告】《浮英枕梦行》版本更新公告</div>
+                                        <div class="time">2023-02-07</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/146">
+                                        <div class="title">【公告】1月20日封禁处理公示</div>
+                                        <div class="time">2023-01-20</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/143">
+                                        <div class="title">【公告】《凛桎鸣渊》版本更新公告</div>
+                                        <div class="time">2022-12-27</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/138">
+                                        <div class="title">【公告】《创绘映想》版本更新公告</div>
+                                        <div class="time">2022-11-15</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/135">
+                                        <div class="title">【公告】10月27日封禁处理公示</div>
+                                        <div class="time">2022-10-27</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/132">
+                                        <div class="title">【公告】10月13日封禁处理公示</div>
+                                        <div class="time">2022-10-13</div>
+                                    </a>
+                                </li>
+                            </div>
+                            <div class="block">
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/78">
+                                        <div class="title">【活动】DOKIDOKI-520心跳特辑</div>
+                                        <div class="time">2022-05-19</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/59">
+                                        <div class="title">【活动】黄金时代的盲盒机抽奖活动获奖名单公示</div>
+                                        <div class="time">2022-03-30</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/29">
+                                        <div class="title">【活动】法奥斯期末测验获奖名单公示</div>
+                                        <div class="time">2022-01-21</div>
+                                    </a>
+                                </li>
+                            </div>
+                            <div class="block">
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/119">
+                                        <div class="title">【攻略】《战双帕弥什》角色攻略 | 邦比娜塔·琉璃</div>
+                                        <div class="time">2022-08-22</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/117">
+                                        <div class="title">【攻略】《战双帕弥什》未语庭言作战交流会</div>
+                                        <div class="time">2022-08-18</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/81">
+                                        <div class="title">【攻略】萌新攻略·从0开始的开荒，18分钟极速毕业</div>
+                                        <div class="time">2022-05-24</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/79">
+                                        <div class="title">【攻略】队伍培养及使用技巧指南—暗队</div>
+                                        <div class="time">2022-05-19</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/76">
+                                        <div class="title">【攻略】诺曼复兴战（矿区）详细介绍＆技巧分享</div>
+                                        <div class="time">2022-05-18</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/74">
+                                        <div class="title">【攻略】萌新入门：从零开荒指南—成长期（下篇）</div>
+                                        <div class="time">2022-05-17</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://pns.kurogame.com/news/73">
+                                        <div class="title">【攻略】萌新入门：从零开荒指南—1~40级过渡期（上篇）</div>
+                                        <div class="time">2022-05-17</div>
+                                    </a>
+                                </li>
+                            </div>
                         </div>
                     </div>
                     <div class="btn more">
@@ -766,6 +531,19 @@
         go_audio.onclick = () => {
             video_scene.classList.remove('go_video');
             video_scene.classList.add('go_audio');
+        }
+
+        // 新闻标题切换
+        const news_titles = document.querySelectorAll('.section:nth-child(2) .news .titles li');
+        const news_body = document.getElementById('news_body');
+        for(let i = 0 ; i < news_titles.length ; i++) {
+            news_titles[i].onclick = () => {
+                // clear all
+                news_titles.forEach(item => item.classList.remove('active'));
+                news_titles[i].classList.add('active');
+                // move body
+                news_body.style.left = `-${i}00%`;
+            }
         }
     </script>
 </html>
